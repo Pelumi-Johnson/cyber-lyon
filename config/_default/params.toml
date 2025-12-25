@@ -82,9 +82,9 @@ enabled = true
 enabled = true
 
 
-## COMMENTS (ENABLED)
+## COMMENTS (DISENABLED)
 [comments]
-enabled = true
+enabled = false
 provider = "disqus"
 
 
