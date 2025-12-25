@@ -6,6 +6,7 @@ rssFullContent = true
 
 favicon = "/favicon.png"
 
+disqusShortname = "cyberlyon-blog"
 
 [footer]
 since = 2020
@@ -82,9 +83,9 @@ enabled = true
 enabled = true
 
 
-## COMMENTS (DISENABLED)
+## COMMENTS (ENABLED)
 [comments]
-enabled = false
+enabled = true
 provider = "disqus"
 
 
