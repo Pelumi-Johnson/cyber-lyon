@@ -1,0 +1,21 @@
+/* Match Stack / Hugo background by making Giscus canvas transparent */
+:root {
+  --color-canvas-default: transparent !important;
+  --color-canvas-inset: transparent !important;
+
+  /* Borders + subtle surfaces */
+  --color-border-default: rgba(255,255,255,0.08) !important;
+  --color-neutral-muted: rgba(255,255,255,0.06) !important;
+  --color-neutral-subtle: rgba(255,255,255,0.04) !important;
+
+  /* Text */
+  --color-fg-default: rgba(255,255,255,0.86) !important;
+  --color-fg-muted: rgba(255,255,255,0.60) !important;
+
+  /* Inputs */
+  --color-input-contrast-background: rgba(255,255,255,0.04) !important;
+
+  /* Buttons */
+  --color-btn-bg: rgba(255,255,255,0.06) !important;
+  --color-btn-border: rgba(255,255,255,0.10) !important;
+}

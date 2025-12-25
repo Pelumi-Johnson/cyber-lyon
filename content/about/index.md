@@ -1,3 +1,8 @@
+---
+title: "About"
+comments: false
+---
+
 # What You’ll Find Here
 
 This site is built around three core ideas.

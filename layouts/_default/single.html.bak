@@ -1,0 +1,7 @@
+{{ define "main" }}
+  ...your article markup...
+
+  {{ partial "related.html" . }}
+
+  {{ partial "comments/include" . }}
+{{ end }}

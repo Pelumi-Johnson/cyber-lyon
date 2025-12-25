@@ -1,28 +1,22 @@
 {{ define "main" }}
+    {{ $pages := where .Site.RegularPages "Section" "comics" }}
+    {{ $notHidden := where $pages "Params.hidden" "!=" true }}
+    {{ $sorted := $notHidden.ByDate.Reverse }}
+    {{ $pag := .Paginate $sorted }}
 
-    <!-- Comics Page Header -->
     <header class="section-header">
-        <h1 class="section-title">Cyber Comics</h1>
-        <p class="section-description">
-            Visual stories that explain cybersecurity concepts through simple scenes.
-        </p>
+      <h1 class="section-title">{{ .Title }}</h1>
+      {{ with .Params.description }}
+        <p class="section-description">{{ . }}</p>
+      {{ end }}
     </header>
 
-    {{ $pages := .Pages }}
-    {{ $notHidden := where $pages "Params.hidden" "!=" true }}
-    {{ $pag := .Paginate ($notHidden.ByDate.Reverse) }}
-
     <section class="article-list">
-        {{ range $pag.Pages }}
-            {{ partial "article-list/default" . }}
+        {{ range $index, $element := $pag.Pages }}
+            {{ partial "article-list/default" $element }}
         {{ end }}
     </section>
 
     {{- partial "pagination.html" . -}}
     {{- partial "footer/footer" . -}}
-
-{{ end }}
-
-{{ define "right-sidebar" }}
-    {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
 {{ end }}

@@ -1,0 +1,28 @@
+{{/* layouts/partials/related.html */}}
+
+{{/* 1) Try Hugo's related content */}}
+{{ $related := (where (.Site.RegularPages.Related .) "Params.hidden" "!=" true) }}
+
+{{/* 2) If none, fallback to same section (comics -> comics, post -> post, etc.) */}}
+{{ if eq (len $related) 0 }}
+  {{ $related = where .Site.RegularPages "Section" .Section }}
+  {{ $related = where $related "Params.hidden" "!=" true }}
+  {{ $related = where $related "RelPermalink" "!=" .RelPermalink }}
+  {{ $related = first 5 $related }}
+{{ else }}
+  {{ $related = first 5 $related }}
+{{ end }}
+
+{{/* 3) Render if we have anything */}}
+{{ with $related }}
+<aside class="related-content--wrapper">
+  <h2 class="section-title">Suggested Content</h2>
+  <div class="related-content">
+    <div class="flex article-list--tile">
+      {{ range . }}
+        {{ partial "article-list/tile" (dict "context" . "size" "250x150" "Type" "articleList") }}
+      {{ end }}
+    </div>
+  </div>
+</aside>
+{{ end }}

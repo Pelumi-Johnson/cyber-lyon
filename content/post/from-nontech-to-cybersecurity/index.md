@@ -2,9 +2,10 @@
 title: "From Non-Tech to Cybersecurity: Finding Direction and Breaking In"
 description: "How I moved from uncertainty after college to clarity through cybersecurity, faith, and disciplined learning."
 date: 2025-12-13T02:55:00-05:00
-tags: ["journey", "career-transition", "cybersecurity", "faith"]
-categories: ["Journey"]
+tags: ["journey", "cybersecurity", "faith"]
+categories: ["career-transition"]
 image: "cover.png"
+type: "post"
 ---
 
 ## A Degree, But No Direction

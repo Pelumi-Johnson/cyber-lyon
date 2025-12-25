@@ -1,11 +1,13 @@
 ---
 title: "Reconnaissance in Action"
 date: 2025-12-15
-description: "A calm comic episode showing how attackers observe before they act — and how defenders stay ahead."
-categories: ["Journey"]
+description: "A calm comic episode showing how attackers observe before they act, and how defenders stay ahead."
+categories: "comics"
 tags: ["Comics", "Cybersecurity", "Security-Awareness"]
 image: "cover.png"
+cover:
 ---
+
 
 > *“Most attacks don’t start with chaos.  
 They start with someone quietly paying attention.”*
