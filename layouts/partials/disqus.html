@@ -1,20 +1,31 @@
-<div id="disqus_thread"></div>
+{{- $short := site.Config.Services.Disqus.Shortname -}}
 
-<script>
-  var disqus_config = function () {
-    // Optional: you can set page.url and page.identifier if you want
-    // this.page.url = window.location.href;
-    // this.page.identifier = window.location.pathname;
-  };
+{{- if not $short -}}
+  <!-- Disqus shortname not set. Add it under [services.disqus]. -->
+{{- else -}}
+  <div id="disqus_thread"></div>
 
-  (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://{{ .Site.DisqusShortname }}.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-  })();
-</script>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "{{ .Permalink }}";
+      this.page.identifier = "{{ .RelPermalink }}";
+    };
 
-<noscript>
-  Please enable JavaScript to view the comments powered by Disqus.
-</noscript>
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = "https://{{ $short }}.disqus.com/embed.js";
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+
+  <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+
+  <script>
+    window.addEventListener('onColorSchemeChange', () => {
+      if (typeof DISQUS === 'object') {
+        DISQUS.reset({ reload: true });
+      }
+    });
+  </script>
+{{- end -}}
