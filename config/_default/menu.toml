@@ -5,15 +5,6 @@
 
 
 [[main]]
-identifier = "comics"
-name = "Comics"
-url = "/comics/"
-weight = 20
-
-  [main.params]
-  icon = "message-circle"  # (temporary safe icon; you can create comics.svg later)
-
-[[main]]
 identifier = "archives"
 name = "Archives"
 url = "/archives/"
@@ -69,7 +60,7 @@ url = "https://www.linkedin.com/in/cyberlyon/"
   icon = "brand-linkedin"
 
 [[main]]
-name = "Cyber Comics"
+name = "Comics"
 url = "/cyber-comics/"
 weight = 2
 
