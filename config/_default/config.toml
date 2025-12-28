@@ -22,3 +22,8 @@ pagerSize = 5
 [services]
   [services.disqus]
     shortname = "cyberlyon-blog"
+
+[[menu.main]]
+name = "Cyber Comics"
+url = "/cyber-comics/"
+weight = 3

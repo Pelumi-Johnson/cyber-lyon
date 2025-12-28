@@ -67,3 +67,11 @@ url = "https://www.linkedin.com/in/cyberlyon/"
 
   [social.params]
   icon = "brand-linkedin"
+
+[[main]]
+name = "Cyber Comics"
+url = "/cyber-comics/"
+weight = 2
+
+  [main.params]
+  icon = "message-circle"
