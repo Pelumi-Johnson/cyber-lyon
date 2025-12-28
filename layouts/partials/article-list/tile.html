@@ -1,0 +1,83 @@
+{{ $ctx := .context }}
+{{ $image := partialCached "helper/image" (dict "Context" $ctx "Type" .Type) $ctx.RelPermalink .Type }}
+
+{{/* Taxonomy thumbnail support */}}
+{{ $taxonomyResPermalink := "" }}
+{{ $taxonomyResWidth := 0 }}
+{{ $taxonomyResHeight := 0 }}
+{{ $taxonomyURL := "" }}
+
+{{ if eq .Type "taxonomy" }}
+    {{ with $ctx.Params.image }}
+        {{ $res := $ctx.Resources.GetMatch . }}
+        {{ if $res }}
+            {{ $img := $res }}
+            {{ if $ctx.Site.Params.imageProcessing.cover.enabled }}
+                {{ $img = $img.Fill $.size }}
+            {{ end }}
+            {{ $taxonomyResPermalink = $img.RelPermalink }}
+            {{ $taxonomyResWidth = $img.Width }}
+            {{ $taxonomyResHeight = $img.Height }}
+        {{ else }}
+            {{ $taxonomyURL = (. | relURL) }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+
+<article class="{{ if or $image.exists (ne $taxonomyResPermalink "") (ne $taxonomyURL "") }}has-image{{ end }}">
+    <a href="{{ $ctx.RelPermalink }}">
+
+        {{ if or $image.exists (ne $taxonomyResPermalink "") (ne $taxonomyURL "") }}
+            <div class="article-image">
+
+                {{/* Prefer taxonomy image if present */}}
+                {{ if ne $taxonomyResPermalink "" }}
+                    <img src="{{ $taxonomyResPermalink }}"
+                         {{ if gt $taxonomyResWidth 0 }}width="{{ $taxonomyResWidth }}"{{ end }}
+                         {{ if gt $taxonomyResHeight 0 }}height="{{ $taxonomyResHeight }}"{{ end }}
+                         loading="lazy"
+                         alt="{{ $ctx.Title }}">
+
+                {{/* Or taxonomy URL */}}
+                {{ else if ne $taxonomyURL "" }}
+                    <img src="{{ $taxonomyURL }}"
+                         loading="lazy"
+                         alt="{{ $ctx.Title }}">
+
+                {{/* Otherwise fall back to normal post image logic */}}
+                {{ else if $image.resource }}
+                    {{- $imageRaw := $image.resource | resources.Fingerprint "md5" -}}
+                    {{- $Permalink := $imageRaw.RelPermalink -}}
+                    {{- $Width := $imageRaw.Width -}}
+                    {{- $Height := $imageRaw.Height -}}
+
+                    {{- if $ctx.Site.Params.imageProcessing.cover.enabled -}}
+                        {{- $thumbnail := $imageRaw.Fill .size -}}
+                        {{- $Permalink = $thumbnail.RelPermalink -}}
+                        {{- $Width = $thumbnail.Width -}}
+                        {{- $Height = $thumbnail.Height -}}
+                    {{- end -}}
+
+                    <img src="{{ $Permalink }}"
+                         width="{{ $Width }}"
+                         height="{{ $Height }}"
+                         loading="lazy"
+                         alt="Featured image of {{ $ctx.Title }}"
+                         data-hash="{{ $imageRaw.Data.Integrity }}">
+
+                {{ else }}
+                    <img src="{{ $image.permalink }}"
+                         loading="lazy"
+                         alt="{{ $ctx.Title }}">
+                {{ end }}
+
+            </div>
+        {{ end }}
+
+        <div class="article-details">
+            <h2 class="article-title">
+                {{- $ctx.Title -}}
+            </h2>
+        </div>
+    </a>
+</article>

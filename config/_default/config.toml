@@ -15,7 +15,8 @@ pagerSize = 5
 
 
 [params]
-mainSections = ["notes", "post"]
+  mainSections = ["notes", "post"]
+  
 
 
 [services]
