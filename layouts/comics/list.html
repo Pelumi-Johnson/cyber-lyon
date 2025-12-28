@@ -4,12 +4,12 @@
   {{ $sorted := $notHidden.ByDate.Reverse }}
   {{ $pag := .Paginate $sorted }}
 
-<header class="section-header">
-  <h1 class="section-title">{{ .Title }}</h1>
-  {{ with .Params.description }}
-    <p class="section-description">{{ . }}</p>
-  {{ end }}
-</header>
+  <header class="section-header">
+    <h1 class="section-title">{{ .Title }}</h1>
+    {{ with .Params.description }}
+      <p class="section-description">{{ . }}</p>
+    {{ end }}
+  </header>
 
   <section class="article-list">
     {{ range $pag.Pages }}
