@@ -9,7 +9,8 @@ favicon = "/favicon.png"
 
 [footer]
 since = 2020
-customText = ""
+customText = "Theme designed by Pelumi"
+
 
 
 [dateFormat]

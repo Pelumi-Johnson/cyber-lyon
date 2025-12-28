@@ -1,0 +1,27 @@
+{{ define "main" }}
+  {{ $pages := where .Site.RegularPages "Section" "cyber-comics" }}
+  {{ $notHidden := where $pages "Params.hidden" "!=" true }}
+  {{ $sorted := $notHidden.ByDate.Reverse }}
+  {{ $pag := .Paginate $sorted }}
+
+  <header class="section-header">
+    <h1 class="section-title">{{ .Title }}</h1>
+    {{ with .Params.description }}
+      <p class="section-description">{{ . }}</p>
+    {{ end }}
+  </header>
+
+  <section class="article-list">
+    {{ range $pag.Pages }}
+      {{ partial "article-list/default" . }}
+    {{ end }}
+  </section>
+
+  {{ partial "pagination.html" . }}
+
+  {{ partial "footer/footer" . }}
+{{ end }}
+
+{{ define "right-sidebar" }}
+  {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
+{{ end }}
