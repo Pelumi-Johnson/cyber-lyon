@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ $pages := where .Site.RegularPages "Section" "comics2" }}
+  {{ $pages := where .Site.RegularPages "Section" "stories" }}
   {{ $notHidden := where $pages "Params.hidden" "!=" true }}
   {{ $sorted := $notHidden.ByDate.Reverse }}
   {{ $pag := .Paginate $sorted }}
