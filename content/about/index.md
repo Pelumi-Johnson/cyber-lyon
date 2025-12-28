@@ -3,23 +3,6 @@ title: "About"
 comments: false
 ---
 
-# What You’ll Find Here
-
-This site is built around three core ideas.
-
-**Clear explanations**  
-  Beginner-friendly breakdowns of cybersecurity concepts that often feel intimidating at first.
-
-**Practical insight**  
-  Lessons drawn from hands-on exercises, tools, and real troubleshooting moments.
-
-**Reflections and patterns**  
-  What I’m noticing as I grow, not just what I did, but what it taught me.
-
-If you’re learning too, think of this as a place where complex topics are unpacked carefully, step by step.
-
----
-
 **ABOUT THIS SITE**
 
 This site exists to make cybersecurity more approachable. It’s for people who are curious but unsure where to start. For those who want to understand how systems work, how risks appear, and how protection actually happens in practice. Everything here is shared with the belief that learning should be accessible, honest, and grounded. Not rushed. Not inflated. Just clear. Alongside written reflections and technical breakdowns, this site also uses **cybersecurity comics** to explain concepts visually, turning abstract ideas into stories that are easier to grasp and remember.
