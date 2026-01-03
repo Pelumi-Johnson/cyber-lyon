@@ -43,6 +43,12 @@ default = "Licensed under CC BY-NC-SA 4.0"
 ## Search + Archives REMOVED so menu controls sidebar order
 
 [[widgets.homepage]]
+type = "search"
+
+[[widgets.homepage]]
+type = "archives"
+
+[[widgets.homepage]]
 type = "categories"
 
 [widgets.homepage.params]

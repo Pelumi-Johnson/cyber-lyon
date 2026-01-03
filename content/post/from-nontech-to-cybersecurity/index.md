@@ -181,4 +181,4 @@ Sometimes direction comes after commitment, not before it.
 
 Clarity often shows up one step at a time.
 
-Welcome to Watchtower.
+Welcome to Cyberlyon.
